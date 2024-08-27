@@ -13,13 +13,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Test
+    - name: test
       id: test
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 10
         max-score: 1
         setup-command: pip3 install -r requirements.txt
+        command: test.py
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
